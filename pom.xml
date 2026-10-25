@@ -99,6 +99,15 @@
   <dependencyManagement>
     <dependencies>
 
+      <!-- Aligns all JUnit artifacts (also those pulled in transitively, e.g., by djunits) to one version. -->
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <dependency>
         <groupId>org.djutils</groupId>
         <artifactId>djutils-draw</artifactId>
@@ -227,8 +236,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven.compiler.version}</version>
         <configuration>
-          <source>${jdk.version}</source>
-          <target>${jdk.version}</target>
+          <release>${jdk.version}</release>
         </configuration>
       </plugin>
 
@@ -311,14 +319,14 @@
         <version>${maven.javadoc.version}</version>
         <configuration>
           <links>
-            <link>https://djunits.org/docs/latest/apidocs/</link>
-            <link>https://djutils.org/docs/latest/djutils-base/apidocs/</link>
-            <link>https://djutils.org/docs/latest/djutils-test/apidocs/</link>
+            <link>https://javadoc.io/static/org.djunits/djunits/${djunits.version}/</link>
+            <link>https://javadoc.io/static/org.djutils/djutils-base/${djutils-base.version}/</link>
+            <!-- djutils-test is not on javadoc.io and is not referenced from main code; restore https://djutils.org/docs/latest/djutils-test/apidocs/ when djutils.org is back -->
             <link>https://junit.org/junit5/docs/current/api/</link>
-            <link>https://javadoc.io/doc/jakarta.annotation/jakarta.annotation-api/latest/jakarta.annotation/</link>
+            <link>https://javadoc.io/static/jakarta.annotation/jakarta.annotation-api/${jakarta.annotation.version}/</link>
             <link>https://picocli.info/apidocs/</link>
-            <link>https://javadoc.io/doc/de.siegmar/fastcsv/latest/de.siegmar.fastcsv/</link>
-            <link>https://www.javadoc.io/doc/com.google.code.gson/gson/latest/</link>
+            <link>https://javadoc.io/static/de.siegmar/fastcsv/${fastcsv.version}/</link>
+            <link>https://javadoc.io/static/com.google.code.gson/gson/${gson.version}/</link>
           </links>
           <minmemory>256m</minmemory>
           <maxmemory>1g</maxmemory>
@@ -559,14 +567,14 @@
         <version>${maven.javadoc.version}</version>
         <configuration>
           <links>
-            <link>https://djunits.org/docs/latest/apidocs/</link> 
-            <link>https://djutils.org/docs/latest/djutils-base/apidocs/</link>
-            <link>https://djutils.org/docs/latest/djutils-test/apidocs/</link>
+            <link>https://javadoc.io/static/org.djunits/djunits/${djunits.version}/</link> 
+            <link>https://javadoc.io/static/org.djutils/djutils-base/${djutils-base.version}/</link>
+            <!-- djutils-test is not on javadoc.io and is not referenced from main code; restore https://djutils.org/docs/latest/djutils-test/apidocs/ when djutils.org is back -->
             <link>https://junit.org/junit5/docs/current/api/</link>
-            <link>https://javadoc.io/doc/jakarta.annotation/jakarta.annotation-api/latest/jakarta.annotation/</link>
+            <link>https://javadoc.io/static/jakarta.annotation/jakarta.annotation-api/${jakarta.annotation.version}/</link>
             <link>https://picocli.info/apidocs/</link>
-            <link>https://javadoc.io/doc/de.siegmar/fastcsv/latest/de.siegmar.fastcsv/</link>
-            <link>https://www.javadoc.io/doc/com.google.code.gson/gson/latest/</link>
+            <link>https://javadoc.io/static/de.siegmar/fastcsv/${fastcsv.version}/</link>
+            <link>https://javadoc.io/static/com.google.code.gson/gson/${gson.version}/</link>
           </links>
           <detectLinks>true</detectLinks>
           <detectOfflineLinks>true</detectOfflineLinks>

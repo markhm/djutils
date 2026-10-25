@@ -293,7 +293,7 @@ public class Eval
      */
     public Eval setUserDefinedFunctions(final Map<String, Function> userDefinedFunctionMap)
     {
-        this.userDefinedFunctions = new HashMap<>(userDefinedFunctionMap);
+        this.userDefinedFunctions = null == userDefinedFunctionMap ? null : new HashMap<>(userDefinedFunctionMap);
         return this;
     }
 

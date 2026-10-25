@@ -174,14 +174,14 @@ public final class DataDemo
 
         System.out.println(table);
 
-        Object[] record = new Object[] {new Time(600, Duration.Unit.s, Time.Reference.UNIX),
+        Object[] record = new Object[] {new Time(600, Duration.Unit.s, Time.Reference.UNIX, false),
                 new Temperature(18.0, Temperature.Unit.degC), "starting engine"};
         table.addRow(record);
 
         Map<String, Object> map = new HashMap<>();
         map.put("remark", "leaving parking lot");
         map.put("temperature", new Temperature(28.5, Temperature.Unit.degC));
-        map.put("timeStamp", new Time(660, Duration.Unit.s, Time.Reference.UNIX));
+        map.put("timeStamp", new Time(660, Duration.Unit.s, Time.Reference.UNIX, false));
         table.addRowByColumnIds(map);
 
         for (Row dataRecord : table)

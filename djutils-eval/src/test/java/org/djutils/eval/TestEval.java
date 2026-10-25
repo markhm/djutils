@@ -1136,6 +1136,8 @@ public class TestEval
             }
         };
         map.put(ceil.getId(), ceil);
+        // The map is copied when installed, so it must be installed again after adding the function
+        eval.setUserDefinedFunctions(map);
         verifyValueAndUnit("ceil should now work", eval.evaluateExpression("ceil(5.1)"), 6, 0.0000001, Dimensionless.ONE);
         // Remove all user defined functions
         eval.setUserDefinedFunctions(null);
