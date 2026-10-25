@@ -45,7 +45,7 @@ public class MultiSliderInvertedDemo extends JFrame
         getContentPane().setBackground(new Color(204, 255, 204));
 
         var horSlider = new MultiSlider(100, 200, new int[] {125, 150, 175});
-        // horSlider.setUI(new BasicSliderUI());
+        // horSlider.setUI(new BasicSliderUI(null));
         horSlider.setMajorTickSpacing(25);
         horSlider.setMinorTickSpacing(5);
         horSlider.setPaintTicks(true);

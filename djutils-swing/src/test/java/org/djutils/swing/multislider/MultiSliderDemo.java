@@ -47,7 +47,7 @@ public class MultiSliderDemo extends JFrame
         getContentPane().setBackground(new Color(204, 255, 204));
 
         var horSlider = new MultiSlider(0, 100, true, new int[] {25, 50, 75, 80});
-        // horSlider.setUI(new BasicSliderUI());
+        // horSlider.setUI(new BasicSliderUI(null));
         horSlider.setMajorTickSpacing(25);
         horSlider.setMinorTickSpacing(5);
         horSlider.setPaintTicks(true);
@@ -85,7 +85,7 @@ public class MultiSliderDemo extends JFrame
         horSlider2.setThumbLabel(2, "z");
         horSlider2.setDrawThumbLabels(true, 20);
         horSlider2.setSnapToTicks(true);
-        horSlider2.setUI(new BasicSliderUI());
+        horSlider2.setUI(new BasicSliderUI(null));
         horSlider2.setPassing(true);
         horSlider2.setOverlap(true);
 

@@ -105,7 +105,7 @@ public class MultiSliderRestrictionDemo extends JFrame
         s3.setThumbLabel(2, "z");
         s3.setDrawThumbLabels(true, 20);
         s3.setSnapToTicks(true);
-        s3.setUI(new BasicSliderUI());
+        s3.setUI(new BasicSliderUI(null));
         s3.setPassing(false);
         s3.setOverlap(false);
 
@@ -127,7 +127,7 @@ public class MultiSliderRestrictionDemo extends JFrame
         s4.setThumbLabel(1, "choice 2");
         s4.setDrawThumbLabels(true, 20);
         s4.setSnapToTicks(true);
-        s4.setUI(new BasicSliderUI());
+        s4.setUI(new BasicSliderUI(null));
         s4.setPassing(false);
         s4.setOverlap(false);
 

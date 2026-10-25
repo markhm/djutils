@@ -441,7 +441,7 @@ public class MultiSliderTest
         frame.pack();
         Thread.sleep(500);
 
-        ms.setUI(new BasicSliderUI());
+        ms.setUI(new BasicSliderUI(null));
         assertEquals("BasicSliderUI", ms.getUI().getClass().getSimpleName());
         assertEquals("SliderUI", ms.getUIClassID());
         UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");

@@ -27,12 +27,7 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>com.github.caciocavallosilano</groupId>
-      <artifactId>cacio-tta</artifactId>
-      <version>1.18</version>
-      <scope>test</scope>
-    </dependency>
+    <!-- The cacio-tta (headless GUI test) dependency depends on the JDK; see the profiles below. -->
 
   </dependencies>
   
@@ -86,11 +81,43 @@
   </build>
 
   <profiles>
-    <!-- cacio-tta 1.18 only supports JDK 17-21; skip the GUI tests that depend on it on newer JDKs. -->
+    <!-- cacio-tta 1.18 supports JDK 17-21. -->
+    <profile>
+      <id>cacio-jdk17</id>
+      <activation>
+        <jdk>[17,25)</jdk>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.github.caciocavallosilano</groupId>
+          <artifactId>cacio-tta</artifactId>
+          <version>1.18</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <!-- cacio-tta-jdk25 is compiled for, and only works on, JDK 25+. -->
+    <profile>
+      <id>cacio-jdk25</id>
+      <activation>
+        <jdk>[25,)</jdk>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.github.caciocavallosilano</groupId>
+          <artifactId>cacio-tta-jdk25</artifactId>
+          <version>2.0</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <!-- No cacio-tta release supports JDK 22-24; skip the GUI tests there. -->
     <profile>
       <id>skip-cacio-tests</id>
       <activation>
-        <jdk>[22,)</jdk>
+        <jdk>[22,25)</jdk>
       </activation>
       <build>
         <plugins>

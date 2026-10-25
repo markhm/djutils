@@ -517,7 +517,19 @@ public abstract class AbstractMultiSlider<T> extends JComponent
         {
             try
             {
-                slider.setUI(ui.getClass().getDeclaredConstructor().newInstance());
+                // BasicSliderUI only has a JSlider constructor in recent JDKs; other SliderUIs may only have a no-arg one
+                slider.setUI(ui.getClass().getDeclaredConstructor(JSlider.class).newInstance(slider));
+            }
+            catch (NoSuchMethodException nsme)
+            {
+                try
+                {
+                    slider.setUI(ui.getClass().getDeclaredConstructor().newInstance());
+                }
+                catch (Exception exception)
+                {
+                    // silently fail
+                }
             }
             catch (Exception exception)
             {
